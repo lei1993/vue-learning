@@ -29,9 +29,17 @@
         },
 
         watch: {
+            /** 监听属性没有返回值，简单模式可能并不有效，需要写完整形式（参数以及handler） 
+            handler(newVal, oldVal)：
+                        newVal是监听到的新值，oldVal是原值
+            immediate: 该值默认是false，在进入页面时，第一次绑定值，不会立刻进行监听，只有数据数据发生改变时
+                        才会执行handler中的操作。
+            deep： 监听Vue对象中的属性值的变化
+            note： 箭头函数()=>{} 中是有return的
+            */
             keyWord: {
-                immediate: true,
-                handler(val){
+                immediate: true, 
+                handler(val){ 
                     this.filPersons = this.persons.filter((p) =>{
                     return p.name.indexOf(val) !== -1
                 })

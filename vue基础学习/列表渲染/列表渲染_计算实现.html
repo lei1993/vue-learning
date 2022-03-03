@@ -31,12 +31,15 @@
             sortType: 0
         },
         computed:{
+            /** 计算属性需要有return
+            */
             filPersons(){
                const  arr = this.persons.filter((p) =>{
                      return p.name.indexOf(this.keyWord) !== -1
                 })
                 if(this.sortType){
                     arr.sort((p1, p2) =>{
+                        // sort函数后项减前项是降序，前项减后项是升序
                         return this.sortType === 1 ? p2.age - p1.age : p1.age - p2.age
                     })   
             }
